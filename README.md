@@ -1,6 +1,6 @@
 # ultimate_translate_tshirt
 
-- sudo apt install mpg123
+- `sudo apt install mpg123`
 - `pip install -r requirements.txt`
 - python3 tshirt.py
 - parler et attendre la traduction
