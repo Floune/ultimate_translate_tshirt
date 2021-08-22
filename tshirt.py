@@ -16,20 +16,23 @@ languages = {
     "japonais": "ja",
     "arabe": "ar",
     "français": "fr",
+    "russe": "ru",
+    "serbe": "sr",
 }
+
+
+def displayConfiguration():
+    print("----Configuration----")
+    print("langue de sortie: " + tolang)
+    print("-- Langues disponibles --")
+    for lang in languages:
+        print(lang)
 
 def configureTarget(newlang):
     global tolang
     if newlang in languages:
         tolang = languages[newlang]
         print("nouvelle langue de traduction: " + newlang)
-
-def configureSource(newlang):
-    global fromlang
-    if newlang in languages:
-        fromlang = languages[newlang]
-        print("nouvelle langue d'input': " + newlang)
-
 
 def megaTrans(text):
     translated = GoogleTranslator(source=fromlang, target=tolang).translate(text=text)
@@ -42,23 +45,23 @@ def tshirt():
         try:
             with micro as source:
                 audio_data = r.listen(source)
+                print("...")
                 result = r.recognize_google(audio_data, language="fr-FR")
 
-            if result.split()[0] == "destination":
+            if result == "configuration":
+                displayConfiguration()
+
+            elif result.split()[0] == "destination":
                 configureTarget(result.split()[1])
 
-            if result.split()[0] == "source":
-                configureSource(result.split()[1])
-
-            if result == "extinction":
-                
+            elif result == "je me retire de la vie politique":                
                 sys.exit()
 
             else:
                 megaTrans(result)
         
         except sr.UnknownValueError:
-            print("incompréhensible")
+            pass
 
 tshirt()
 
