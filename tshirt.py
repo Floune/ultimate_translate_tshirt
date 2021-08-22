@@ -18,7 +18,7 @@ def tshirt():
                 vocal = False
                 speak("je me tais", True)
 
-            elif result.split()[0] == "destination":
+            elif result.split()[0] == "destination" and len(result.split()) == 2:
                 configureTarget(result.split()[1])
 
             elif result == "je me retire de la vie politique":                

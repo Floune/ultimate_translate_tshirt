@@ -9,7 +9,12 @@ micro = sr.Microphone()
 r = sr.Recognizer()
 fromlang = "fr"
 tolang = "en"
+audio_language = "fr-FR"
 vocal = False
+filename = "tts.mp3"
+CRED = '\033[91m'
+CEND = '\033[0m'
+
 
 languages = {
     "espagnol": "es",
