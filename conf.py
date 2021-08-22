@@ -6,9 +6,9 @@ from deep_translator import GoogleTranslator
 from gtts import gTTS
 
 micro = sr.Microphone()
+r = sr.Recognizer()
 fromlang = "fr"
 tolang = "en"
-r = sr.Recognizer()
 vocal = False
 
 languages = {

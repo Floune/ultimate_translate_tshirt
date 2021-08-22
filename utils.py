@@ -1,12 +1,19 @@
 from conf import *
 
-def displayConfiguration():
-    print("----Configuration----")
-    print("langue de sortie: " + tolang)
-    print("mode vocal activé") if vocal else print("mode vocal désactivé")
-    print("--Langues disponibles--")
+def displayHelp():
+    print("\n")
+    print("INFORMATIONS")
+    print("\t- langue: " + tolang)
+    print("\t- mode vocal: activé") if vocal else print("\t- mode vocal: désactivé")
+    print("COMMANDES DISPONIBLES")
+    print("\t- parle")
+    print("\t- ne parle plus")
+    print("\t- destination <langue> ( voir langues disponibles)")
+    print("\t- manuel")
+    print("\t- je me retire de la vie politique")
+    print("Langues disponibles")
     for lang in languages:
-        print(lang)
+        print("\t- " + lang)
 
 def configureTarget(newlang):
     global tolang
@@ -15,15 +22,13 @@ def configureTarget(newlang):
         print("nouvelle langue de traduction: " + newlang)
 
 def megaTrans(whatDidYouSay):
-    translated = GoogleTranslator(source=fromlang, target=tolang).translate(text=whatDidYouSay)
-    return translated
+    return GoogleTranslator(source=fromlang, target=tolang).translate(text=whatDidYouSay)
 
 
 def speak(wannaHear, info=False):
     language = tolang if info == False else "fr"
-    tts = gTTS(text=wannaHear, lang=language)
     filename = "tts.mp3"
-    tts.save(filename)
+    gTTS(text=wannaHear, lang=language).save(filename)
     os.system("mpg123 " + filename)
 
 

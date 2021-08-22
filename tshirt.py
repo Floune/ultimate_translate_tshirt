@@ -7,8 +7,8 @@ def tshirt():
     while True:
         try:
             result = recognize()
-            if result == "configuration":
-                displayConfiguration()
+            if result == "manuel":
+                displayHelp()
 
             elif result == "parle":
                 vocal = True
