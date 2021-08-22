@@ -2,7 +2,7 @@
 
 - `sudo apt install mpg123`
 - `pip install -r requirements.txt`
-- python3 tshirt.py
+- `python3 tshirt.py`
 - parler et attendre la traduction
 
 ### commandes disponibles
